@@ -3,15 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
-
-const reducers = {
-  todos: (state = [], action) => {
-    return state;
-  },
-  filters: (state = 'complete', action) => {
-    return state;
-  }
-}
+import * as reducers from './src/reducers';
 
 const store = createStore(combineReducers({
   ...reducers
@@ -27,8 +19,6 @@ const Home = () => {
     </View>
   );
 }
-
-
 
 export default function App() {
   return (
