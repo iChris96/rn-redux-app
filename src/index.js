@@ -12,8 +12,14 @@ const App = ({ todos, filters, dispatch }) => {
                 keyExtractor={x => String(x.id)}
                 renderItem={({ item }) => <ListItem text={item.text} onPress={() => { }} />}
             />
+            <LittleText /> { /* this not receive redux state yet*/}
         </View>
     );
+}
+
+const LittleText = (props) => {
+    console.log(props)
+    return (<Text>little text</Text>)
 }
 
 const styles = StyleSheet.create({
