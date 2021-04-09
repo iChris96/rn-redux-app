@@ -1,18 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import ListItem from './components/ListItem'
+import { connect } from 'react-redux'
 
-export default () => {
+const App = ({ todos, filters, dispatch }) => {
     return (
         <View style={styles.container}>
             <FlatList
                 style={styles.list}
-                data={[
-                    { id: 1, text: "todo 1", completed: false },
-                    { id: 2, text: "todo 2", completed: false },
-                ]
-                }
-                keyExtractor={x => x.id}
+                data={todos}
+                keyExtractor={x => String(x.id)}
                 renderItem={({ item }) => <ListItem text={item.text} onPress={() => { }} />}
             />
         </View>
@@ -30,3 +27,10 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch'
     }
 });
+
+const mapStateToProps = (state) => {
+    console.log("state: ", state)
+    return state;
+}
+
+export default connect(mapStateToProps)(App)
