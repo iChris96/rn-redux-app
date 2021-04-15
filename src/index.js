@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import ListItem from './components/ListItem'
 import { connect } from 'react-redux'
 import { completedAction } from './reducers/todos';
+import Input from './components/Input'
 
 const App = ({ todos, filters, dispatch, handleCompleted }) => {
+
+    const [value, setValue] = useState('');
+
+    const handleChange = (val) => {
+        setValue(val)
+    }
+
     return (
         <View style={styles.container}>
+            <Input onChange={handleChange} value={value} />
             <FlatList
                 style={styles.list}
                 data={todos}
