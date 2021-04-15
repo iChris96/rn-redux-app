@@ -2,12 +2,13 @@ import React from 'react';
 import { TextInput, StyleSheet } from 'react-native'
 
 
-export default ({ onChange, value }) => {
+export default ({ onChange, value, onSubmit }) => {
     return (
         <TextInput
             style={styles.input}
             value={value}
             onChangeText={onChange}
+            onSubmitEditing={onSubmit}
         />
     )
 }
