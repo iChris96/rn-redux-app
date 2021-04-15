@@ -35,11 +35,13 @@ const styles = StyleSheet.create({
     }
 });
 
+//INJECT STATE AS PROP
 const mapStateToProps = (state) => {
     //console.log("state: ", state)
     return state;
 }
 
+//INJECT ACTIONS CREATORS AS PROPS
 const mapDistatchToProps = (dispatch) => {
     return {
         handleCompleted: (id) => dispatch(completedAction(id))
