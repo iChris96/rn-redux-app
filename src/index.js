@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import ListItem from './components/ListItem'
 import { connect } from 'react-redux'
-import { completedAction, addTodoAction } from './reducers/todos';
+import { completedAction, addTodoThunk } from './reducers/todos';
 import Input from './components/Input'
 
 const App = ({ todos, filters, dispatch, handleCompleted, addTodo }) => {
@@ -59,7 +59,7 @@ const mapStateToProps = (state) => {
 const mapDistatchToProps = (dispatch) => {
     return {
         handleCompleted: (id) => dispatch(completedAction(id)),
-        addTodo: (val) => dispatch(addTodoAction(val))
+        addTodo: (val) => dispatch(addTodoThunk(val))
     }
 }
 
